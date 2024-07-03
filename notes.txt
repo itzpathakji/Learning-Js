@@ -1,0 +1,424 @@
+Scripting Language -> to write logic/functionality
+js engine-> environment to run js code/program
+
+client side language to be run on browser.
+
+c++ + js -> node(to execute outside of browser like on server)
+
+so can be used on boot client as well server side.
+
+console.log(),alert are some function of console browser based environment to use directly.
+
+<script> tag to directly write js code in html file -> anywhere like head or body.
+we add at end of body bcoz to make better user experience.
+we can use script tag to link js code in html file also.
+
+HW -> java vs javascript
+
+
+VARIABLES
+named memory location ko variables bolte hai. we can use "let" to create variables. -> dynamically typed variables.
+eg.= let a = 5;
+we can also use var to create variables.
+Difference between them is scope of let is small that is block scoped but var has global scope.
+HW-> Re-decleration is possible or not in case of both.
+
+CONSTANTS
+const a= 5, it is used to define a constant variable.
+
+HW-> how to define variables.
+
+PRIMITIVE TYPES
+String,Number,Boolean,Undefined,Null
+" "...,1.....,True/False,let a ,Empty variables/Cleared variables.
+
+DYNAMIC TYPING
+same variable can have different types of data,based on last assigned value.
+
+REFERENCE TYPES
+Objects,Arrays,Functions.
+let a={properties:x};,let a=[];,later.
+Array is also dynamic.
+
+ECMA-> standards to decide to follow same rules for js to run on browser.
+request->client;
+response->server;
+
+x**y -> (x)power(y);
+
+==  loose equality (value)
+=== strict equality(data and value)(data => type and value both must be same)
+
+ternary operator -> condition ? val1(if true) : val2(if false) ;
+
+
+
+
+----------------------------------OBJECT----------------------------------
+-> collection of properties or key:value pairs.
+-> Function inside object is called method.
+-> .(dot) operator is used to access properties of object.
+
+-> Factory Function == Where objects are created.
+-> e.g => let name = function()   -> here function returns a object.
+
+-> Constructor Function == Every first letter is Capital(Pascal Notation). == same as factory function  but we use this(Which indicates current object).
+-> here it just initialize the properties no return is required like factory function. 
+-> new keyword is used to return a empty object.
+
+DYNAMIC NATURE OF OBJECT  -> Can add and remove properties in an object.
+CONSTRUCTOR PROPERTY  -> object.constructor;
+
+// can check for internal implementation of constructor online.
+
+-> Everything in js is object.
+-> Object are reference related changes in one can change everyone with same related address.
+-> Primitives are copied by there value.Reference are copied by there Address.
+-> for-in and for-of loop padhna hai.
+
+OBJECT CLONING -> Using iteration,Assign Function,Spread Operator.
+GARBAGE COLLECTION  -> De-allocate unused variables and free up memory,cannot be controlled by us.
+
+
+IN-BUILT OBJECTS:
+
+Math Object -> refer mdn
+String object -> Two type of strings primitive and we can also create object string by new String().
+              -> if we use . with primitive string js will start treating it as object.
+Template Literal -> Escape Sequence ko dikhane ke liye we use \(slash).
+                 -> We use back tick(``) to see exactly what we see in code editor. `${ }` to use variables in js or to render variable.
+Date Object -> Refer mdn.
+
+
+-----------------------------------------Arrays-----------------------------------------------------
+-> Array is type of object,reference type.
+-> can insert at end(.push),begin(.unshift),middle(.slice(index,del,numbers to add)).
+-> .indexOf(),.includes() == to check if element is present or not(only for primitives not references).
+-> for searching references we use callback(function passed as an argument in other function) functions == .find() method.
+-> let x = y.find(xy => x.xyz === "");
+-> function(y){     ==  y => x    Arrow Function  
+  return x;
+}
+-> Removing Element == end(.pop()),begin(.shift()),middle(.slice(index,how many to delete)).
+-> Emptying == numbers=[](does not remove from memory only from array),numbers.length = 0,.slice(0,number.length).
+-> Combining Arrays == first.concat(second).
+-> Slicing Arrays == slice(starting,ending+1). 
+-> Spread Operator == ... == to combine arrays/or create copy.
+-> Iterating an Array == for of/for each loop
+-> Joining Arrays == .join(''),(split to split continuos)
+-> Sorting Arrays == .sort()(convert elements into strings),to sort object write predicate function.
+-> Filtering Arrays == .filter(predicate function)
+-> Mapping Arrays == to connect with something else(what you want).
+-> Mapping with Object Padh lena.
+-> Chaining
+
+
+-----------------------------------------Functions--------------------------------------------------
+-> A block of code that fulfills a specific value.
+-> Hoisting == To move function decleration at top(only decleration not assignment).
+-> Arguments are special object in JS(if you pass more than required arguments then extras will be saved in argument object).
+-> Rest Operator == (...) == all the extra arguments get stored as array in rest parameter == must be last parameter.
+-> Default Parameter == if you define it and incase you didn't pass a parameter in function call default parameter will be used.
+                     == if you define any as default then all on its right must be define default.
+-> Getter&Setter == using get and set keyword(refer documentation).
+-> Try&Catch == write all code in try and if it get error it will throw and error throw catch(using throw new error).
+-> Scope == Lifetime of a variable(var has lifetime in a function and let has lifetime in a nearest block).
+
+Reducing an Array == .reduce() == refer documentation.
+
+
+
+-------------------------------------------DOM Modern JS-----------------------------------------------------
+window -> Global object,top level entity,created by browser,represent a browser window.
+DOM -> HTML code converted into JS object is called document and whole model is called Document object model.
+BOM -> To let js communicate with browser on things other than content is done by Browser object model.
+
+character -> tags -> token -> nodes -> DOM(tree like structure)(search on google).
+getElementbyID() -> it is called on document object it throws a single object.
+getElementsbyClassName() -> it returns a *array like object(HTMLCollection)(multiple items)*.
+getElementsbyTagName() -> it returns a *array like object(HTMLCollection)(multiple items)*.
+
+-> $0 is shortcut to get selected element in console.
+
+querySelector('') -> to select in js like #,.,etc in css.
+querySelectorAll('') -> to select multiple not only first one with provided detail.
+
+
+## To Update a Existing Content HTML ##
+.innerHTML(mdn) -> get and set a HTML program inside a provided element(to render).
+.outerHTML(mdn)
+.textContent(mdn) -> treated as text.
+.innerText(mdn) -> if display is hidden it doesn't show it.
+
+.createElement('') -> to create new element -> followed by append().
+.insertAdjacentHTML() -> two elements position and content/element.  -> mdn
+.removeChild() -> to remove element,we should have to parent(also parent = child.parent).
+
+## To Update a Existing Content CSS ##
+.style.property = '';    // only one css property can be changed at a time.
+.style.cssText = 'A:b;B:c;'; //for multiple property.
+.setAttribute() -> w3School -> Separation of concern is broke.
+.className -> return a string of all class name of a given element.
+classList -> return array of all the classes, more useful.
+
+//BROWSER EVENT -> browser announcements(eg-> click,double click).
+->monitorEvents() -> to see events that has been applied to the element.
+  unmonitorEvents() -> not  " " " " " " " " " " " " " " " " " " " " " ".
+
+->interface -> like Blueprint ie classes in c++. 
+  listeners -> to decide action on getting events.
+
+->EventTarget -> interface implemented by object that can receive events and may have listeners for them.(Top level entity) -> Node -> Element
+  3 Methods -> add,remove,dispatchEventListener().
+
+->addEventListener -> listener to event.
+  <event.target>.addEventListener(<event-to-listen-for>, <function-to-run-when-event-happened>).
+
+->To use removeEventListener we need same function that is used to addEventListener.
+  they must be same object(function ie same memory address).
+  same type-> same type -> same function
+
+->Phases of an event
+  Capturing Phase -> Searching for target of event.
+  At Target Phase -> Reached target of event.                         //life cycle is all these phases whole.
+  Bubbling Phase ->  Going back from target of event.
+
+useCapturing -> At which stage you want to execute the event (by default it is Bubbling Phase).
+  use mdn for reference.
+  You cannot directly execute an event listener in the target phase.
+
+  For example, to listen for a click event in the capturing phase:
+  element.addEventListener('click', () => {
+    console.log('Clicked in the capturing phase');
+  }, true);
+
+
+->The Event Object
+  when event occurs ie function execute it gets event object which contains lots of information of  the event.
+
+->The Default Action
+  We can stop default action by .preventDefault().
+
+->nodeName ka concept check kar lena.
+
+->performance.now() -> to check time stamp of a code in javascript.
+->Reflow -> Repaint
+  minimum reflow and repaint has code performance.
+
+Document Fragment ->  A Document Fragment is a lightweight container that can hold a group of nodes from a document.
+                      It is not part of the main DOM tree, which means changes made to the fragment do not affect the main document 
+                      structure until the fragment is inserted into the document. 
+
+Document Fragments are useful when you need to manipulate a group of nodes before adding them to the document. By using 
+a Document Fragment, you can avoid multiple reflows and repaints caused by adding nodes to the document one by one.
+
+The Call Stack -> In JavaScript, the call stack is a mechanism that helps the JavaScript engine keep track of its place in a script that calls multiple functions. 
+                  It operates on a "Last In, First Out" (LIFO) basis, meaning that the last function that was pushed -
+                  - onto the stack is the first to be popped off when the function returns.
+
+                  When a script calls a function, the function is added to the call stack and becomes the current execution context.  
+                  Any additional functions called within that function are added on top of the stack,  
+                  and each function is executed in sequence. When a function completes, it is removed from the stack, 
+                  and the control is passed back to the calling function.
+                 
+-> Js is a single threaded language(processing of one command at a time). 
+   run-to-completion of code.
+   js does not execute multiple line at a same time.
+
+-> JavaScript is often described as a synchronous, single-threaded, non-blocking language. Let's break down what each of these terms means:
+
+   Synchronous: In a synchronous programming model, code is executed sequentially from top to bottom, and each operation blocks the execution of subsequent code until it completes. This means that if there are long-running operations, such as fetching data from a server, the code will wait for these operations to complete before moving on to the next line of code.
+
+   Single-threaded: JavaScript is single-threaded, meaning it has only one call stack and one memory heap. This single thread is responsible for executing the code, handling events, and performing asynchronous tasks.
+
+   Non-blocking: While JavaScript itself is synchronous, many of its APIs are non-blocking. For example, when making an asynchronous request to fetch data from a server using fetch or XMLHttpRequest, the JavaScript engine does not wait for the request to complete. Instead, it continues to execute the rest of the code. When the request completes, a callback function is called to handle the response.
+
+   This combination of synchronous code execution with non-blocking APIs allows JavaScript to be efficient in handling I/O operations and asynchronous tasks without blocking the main thread, which is important for web applications to remain responsive.
+
+
+Event Loop -> When any synchronous code is runner till then any asynchronous function will not be executed.
+
+-> The Event Loop is a critical part of how JavaScript handles asynchronous operations. In JavaScript, code is executed in a single-threaded, non-blocking manner, meaning that only one piece of code is executed at a time, and long-running operations won't block the execution of other code.
+   When an asynchronous operation, such as a timer or a network request, is initiated, it is placed in the event queue to be executed later. The Event Loop's job is to continuously monitor the call stack and the event queue. If the call stack is empty, it takes the first event from the queue and pushes it onto the stack, which effectively starts executing the asynchronous operation's callback.
+
+   Here's a simplified overview of how the Event Loop works:
+
+   1. The JavaScript engine starts executing the code, and any synchronous tasks are added to the call stack and executed in order.
+
+   2. Asynchronous tasks, like timers or network requests, are initiated and set aside. When these tasks are completed, their callback functions are placed in the event queue.
+
+   3. The Event Loop continuously checks if the call stack is empty. If it is, it takes the first event from the queue and pushes its callback onto the stack, which starts executing the callback.
+
+   4. This process continues, with the Event Loop managing the execution of asynchronous operations and ensuring that they do not block the main thread.
+
+   By using the Event Loop and non-blocking I/O, JavaScript can handle asynchronous operations efficiently, making it suitable for building responsive web applications.
+
+-> Refer Philip Robert for Event loop.
+
+->All Async code use the Event Loop in js.
+  Async code is handled by Browser.
+  Stack->Browser->Event Queue->Comes in Stack to get executed.
+
+->setTimeout(function(){
+  console.log("Executed");
+},T);
+  T -> minimum time to execute a function inside setTimeout function. -> milliseconds hai T.
+
+-> In JavaScript, the setTimeout function does not guarantee the exact time of execution. It schedules the provided function to run after a minimum delay, but the actual execution time can be affected by various factors, such as the browser's workload, the performance of the user's device, and other tasks in the event queue.
+   The delay specified in setTimeout is a minimum delay, meaning that the function will not execute before that time has passed. However, it is possible that the function may be delayed further if the browser is busy with other tasks.
+
+-> Even though the delay is set to 0, the function will not be executed immediately because JavaScript is single-threaded and needs to finish executing the current code block before moving on to the next task in the event queue. 
+   This means that if there are other synchronous tasks or code blocks running, the function with a 0ms delay will wait until the current code block finishes before being executed.
+
+Asynchronous JS -> To handle concurrency.
+
+
+///////////////////////////////////////// <<-API->> /////////////////////////////////////////////
+
+-> An API, or Application Programming Interface, is a set of rules and protocols that allows one software application to interact with another. 
+   It defines the methods and data formats that applications can use to request and exchange information. 
+   APIs are used to enable communication between different software systems, such as web applications, mobile apps, and backend services.
+
+   There are several types of APIs, including:
+
+   Web APIs: These APIs are used to enable communication between web servers and web browsers. They are often used to retrieve data from a server, send data to a server, or perform other operations over the internet.
+
+   REST APIs: REST (Representational State Transfer) APIs are a type of web API that follows the principles of REST architecture. They use standard HTTP methods such as GET, POST, PUT, and DELETE to perform operations on resources, and they typically return data in JSON or XML format.
+
+->Features of Asynchronous Code 
+
+  Asynchronous JavaScript has several features that make it powerful and useful for handling asynchronous operations in web applications. Some of the key features include:
+
+  1. **Non-blocking**: Asynchronous operations in JavaScript do not block the execution of other code. This means that while an asynchronous operation is being performed (such as an AJAX request), the rest of the code can continue to execute.
+  2. **Callbacks**: Callback functions are a common pattern in asynchronous JavaScript. They allow you to specify code that should run after an asynchronous operation has completed. Callbacks can be used with methods like `setTimeout`, `setInterval`, and AJAX requests.
+  3. **Promises**: Promises are a more modern way to work with asynchronous code in JavaScript. They represent a value that may be available now, in the future, or never. Promises can be chained together using `.then()` to handle success or failure, making it easier to manage asynchronous operations.
+  4. **Async/await**: Async/await is a syntactic sugar for working with asynchronous code. It allows you to write asynchronous code that looks and behaves like synchronous code, making it easier to read and maintain.
+  5. **Event loop**: JavaScript uses an event loop to handle asynchronous operations. The event loop continuously checks for tasks in the event queue and executes them one at a time, ensuring that asynchronous operations are processed in the correct order.
+  6. **Error handling**: Asynchronous JavaScript provides mechanisms for handling errors that occur during asynchronous operations. This includes using try/catch blocks with async/await or handling errors in the `.catch()` method of a Promise chain.
+
+These features make asynchronous JavaScript a powerful tool for building responsive and efficient web applications that can handle complex interactions and multiple tasks concurrently.
+
+
+Promises -> Promises are a feature in JavaScript that allow you to work with asynchronous code in a more structured and manageable way. 
+            They represent a value that may be available now, in the future, or never. Promises have three states: pending, fulfilled, or rejected.
+
+            Here's a basic example of creating and using a Promise:
+             
+             let myPromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let data = { message: 'Hello, world!' };
+                    resolve(data);
+                }, 2000);
+            });
+
+            myPromise.then((data) => {
+                console.log(data.message);
+            }).catch((error) => {
+                console.error(error);
+            });
+
+  -> Promise Chaining.
+
+  -> async-await -> special method used to work with promises.
+     
+     Async/await is a modern JavaScript feature that allows you to write asynchronous code that looks and behaves like synchronous code. 
+     It provides a cleaner and more readable way to work with asynchronous operations compared to using callbacks or promise chaining.
+
+     async function: An async function is a function that implicitly returns a promise. Inside an async function, 
+                     you can use the await keyword to pause the execution of the function until a promise is resolved or rejected.
+
+     await keyword: The await keyword can only be used inside an async function. It pauses the execution of the async function until the promise is settled (resolved or rejected). 
+                    When using await, the value of the expression is the resolved value of the promise.
+
+-> Fetch API -> The Fetch API is a modern JavaScript API for making network requests (e.g., fetching resources from a server). 
+                It provides a more powerful and flexible way to work with HTTP requests compared to the older XMLHttpRequest (XHR) object.
+
+                Here's a basic example of how to use the Fetch API to make a GET request to a server and process the response:
+
+                fetch('https://jsonplaceholder.typicode.com/todos/1')
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Error:', error));
+
+                In this example, `fetch` is used to make a GET request to 'https://jsonplaceholder.typicode.com/todos/1'. 
+                The `then` method is used to process the response and convert it to JSON format. Finally, the data is logged to the console. 
+                If an error occurs during the request, it is caught and logged to the console using the `catch` method.
+
+                The Fetch API supports various options for making requests, including setting headers, specifying request methods (GET, POST, etc.), and handling different types of data (JSON, FormData, etc.). 
+                It also supports streaming responses and allows you to abort requests using the AbortController interface.
+
+                Overall, the Fetch API provides a modern and efficient way to work with network requests in JavaScript, making it easier to build web applications that communicate with servers.
+
+-> To merge two JSON files and send the merged JSON over a network, you can first read the contents of the two files, merge them into a single JSON object, and then send the merged JSON over the network using an HTTP request. Here's an example using Node.js:
+
+                const fs = require('fs');
+                const fetch = require('node-fetch');
+
+                // Read the contents of the two JSON files
+                const json1 = fs.readFileSync('file1.json', 'utf8');
+                const json2 = fs.readFileSync('file2.json', 'utf8');
+
+                // Parse the JSON strings into JavaScript objects
+                const obj1 = JSON.parse(json1);
+                const obj2 = JSON.parse(json2);
+
+                // Merge the two objects into a single object
+                const mergedObj = { ...obj1, ...obj2 };
+
+                // Convert the merged object back to a JSON string
+                const mergedJson = JSON.stringify(mergedObj);
+
+                // Send the merged JSON over the network,POST call ke liye options section is also there
+                fetch('https://example.com/api/data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: mergedJson,
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+
+
+   In this example, we use the `fs` module to read the contents of the two JSON files (`file1.json` and `file2.json`), 
+   parse them into JavaScript objects (`obj1` and `obj2`), merge them into a single object (`mergedObj`),
+   convert the merged object back to a JSON string (`mergedJson`), and then send the merged JSON over the network using the `fetch` function. 
+   The server can then process the merged JSON as needed.
+
+   When sending data over a network, it needs to be converted to a string format because networks can only transmit data in the form of bytes (binary data). 
+   JSON is a text-based data format, which means it is already in a string format and can be easily transmitted over the network.
+   Converting a JSON object to a string (JSON.stringify) before sending it over the network ensures that the data is in the correct format for transmission. 
+   When the data is received on the other end, it can be converted back to a JSON object (JSON.parse) for processing.
+
+-> Closures -> In JavaScript, a closure is a feature that allows a function to retain access to variables from its parent scope even after the parent function has finished executing. 
+               This means that a function "closes over" or captures variables from its surrounding scope, allowing it to access those variables later, even if the surrounding function is no longer in scope.
+            
+               Here's a simple example to illustrate how closures work:
+
+               function outerFunction() {
+                   let outerVariable = 'I am from outer function';
+                  
+                   function innerFunction() {
+                       console.log(outerVariable);
+                   }
+                  
+                   return innerFunction;
+               }
+
+               let closure = outerFunction();
+               closure(); // Output: I am from outer function
+
+               In this example, outerFunction defines a variable outerVariable and a nested innerFunction. When outerFunction is called, it returns innerFunction. 
+               Even after outerFunction has finished executing, innerFunction maintains a reference to outerVariable through closure.
+
+               Closures are commonly used in JavaScript for various purposes, such as encapsulation, data privacy, and creating functions that can "remember" their lexical environments. 
+               They are a powerful feature that allows for more flexible and expressive code.
+
+  
+
+
+
+
+
+
